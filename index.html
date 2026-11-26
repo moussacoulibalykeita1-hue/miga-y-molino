@@ -1,1 +1,98 @@
-<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Miga & Molino — Café y pan de cada día</title><link rel="stylesheet" href="base.css"><style>body{background:#faf7ef;color:#292e24;--accent:#364b2e}.hero{display:grid;grid-template-columns:1fr 1fr;min-height:570px}.hero-copy{padding:70px 50px 50px 0}.hero h1,h2{font-family:'DM Serif Display',Georgia,serif}.hero figure{margin:0;position:relative}.hero img{width:100%;height:100%;object-fit:cover;border-radius:0 0 100px 0}.hero figcaption{position:absolute;bottom:25px;left:25px;background:#fffc;padding:10px 16px;font-size:12px;border-radius:30px}.hero p{max-width:450px}.ribbon{padding:24px 0;border-top:1px solid #ddd3bd;border-bottom:1px solid #ddd3bd;display:flex;justify-content:space-between;color:#55614b}.menu-layout{display:grid;grid-template-columns:1.8fr 1fr;gap:30px}.menu-item{padding:23px 0;border-bottom:1px solid #e1dece;display:flex;justify-content:space-between;gap:20px}.menu-item h3{margin:0 0 5px}.menu-item p{margin:0}.tabs{display:flex;gap:8px;margin:25px 0}.tabs button{background:#e9eadf;color:#34442c}.tabs button[aria-pressed=true]{background:#364b2e;color:white}.basket{background:#f0eddf;border-radius:14px;padding:28px;align-self:start;position:sticky;top:20px}.cart-row{padding:15px 0;border-bottom:1px solid #d6d3c4}.qty button{padding:5px 11px}.total{font-size:23px;margin:25px 0}.visit{background:#354b2f;color:white;border-radius:15px;padding:40px}.visit .muted{color:#d4dfcb}@media(max-width:760px){.hero,.menu-layout{grid-template-columns:1fr}.hero-copy{padding:45px 0}.hero figure{height:300px}.ribbon{gap:20px;font-size:13px}.basket{position:static}.tabs{flex-wrap:wrap}}</style><body><div class="demo">Proyecto de demostración · Marca ficticia · Pedidos y reservas simulados</div><header class="wrap"><nav><a class="brand" href="#">miga & molino.</a><div class="links"><a href="#carta">La carta</a><a href="#visita">Ven a vernos</a><button id="reserve">Reservar mesa</button></div></nav></header><main class="wrap"><section class="hero"><div class="hero-copy"><p class="eyebrow">Pan lento. Café sin prisas.</p><h1>Tu pequeño<br>ritual de<br>cada mañana.</h1><p class="muted">Pan de masa madre, café recién molido y un rincón donde bajar el ritmo. Elige algo rico y haz una pausa.</p><a href="#carta"><button>Descubrir la carta</button></a></div><figure><img src="https://images.unsplash.com/photo-1546020037-0a343efa835a?auto=format&fit=crop&w=1200&q=85" alt="Croissants recién hechos junto a una taza de café"><figcaption>Fotografía de Marwan Aboul-Zelof · Unsplash</figcaption></figure></section><div class="ribbon"><span>Horneado cada mañana</span><span>Opciones vegetales</span><span>Para disfrutar aquí o llevar</span></div><section id="carta" class="section"><p class="eyebrow">Hecho para disfrutar</p><h2>Lo de siempre, bien hecho.</h2><div class="menu-layout"><div><div class="tabs" id="tabs"></div><div id="menu"></div></div><aside class="basket"><p class="eyebrow">Recogida en el local</p><h2>Tu pausa, preparada.</h2><div id="cart"></div><div class="row between total"><span>Total</span><strong id="total">0,00 €</strong></div><button id="order" style="width:100%" disabled>Preparar pedido de ejemplo</button><p class="small muted" style="margin-top:15px">Prueba interactiva. Se guarda un resumen local.</p><div id="receipt" role="status"></div></aside></div></section><section id="visita" class="visit grid two"><div><p class="eyebrow">Un lugar para quedarte</p><h2>El café sabe mejor<br>con un poco de tiempo.</h2><p class="muted">Explora cómo sería reservar mesa en una cafetería de barrio.</p></div><div><h3>Horario de ejemplo</h3><p>Lunes a viernes · 08:00–19:00<br>Sábados y domingos · 09:00–15:00</p><button class="secondary" style="color:white" id="reserve2">Elegir día y hora</button></div></section></main><footer class="wrap footer" style="margin-top:45px">Miga & Molino · Concepto de cafetería y experiencia de compra · Proyecto personal asistido por IA.</footer><dialog id="booking"><form id="bookform"><div class="row between"><h2>Nos vemos en Miga.</h2><button type="button" class="secondary" id="close">Cerrar</button></div><p class="muted">Configura una reserva de ejemplo.</p><label>Día<input id="day" type="date" required></label><div class="grid two"><label>Hora<select id="hour"><option>09:00</option><option>10:30</option><option>12:00</option><option>13:30</option></select></label><label>Personas<select id="people"><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label></div><button>Confirmar reserva de ejemplo</button><div id="bookstatus" role="status"></div></form></dialog><script src="miga.js"></script></body></html>
+<!doctype html>
+<html lang="es" data-type="place">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="La carta de Miga & Molino: café, pan de masa madre y bollería.">
+  <meta name="page-type" content="place">
+  <meta name="page-kind" content="place">
+  <meta name="site-kind" content="other">
+  <title>Miga & Molino — Café y horno</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="miga-polish.css">
+  <link rel="stylesheet" href="miga-editorial.css">
+  <link rel="stylesheet" href="miga-experience.css">
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="wrap masthead">
+    <nav aria-label="Principal">
+      <a class="brand" href="#" aria-label="Miga & Molino, inicio">Miga <i>&amp;</i> Molino</a>
+      <div class="links"><a href="#carta">Carta</a><a href="#horno">Horno</a><a href="#visita">Visita</a></div>
+      <a class="cart-link" href="#cesta">Carrito <span id="cart-count">0</span></a>
+    </nav>
+  </header>
+  <main class="wrap" id="contenido">
+    <section class="hero" data-enter>
+      <div class="hero-copy">
+        <h1>Café, pan<br>y mantequilla.</h1>
+        <p class="hero-description">Espresso recién molido, pan de masa madre y croissants de mantequilla. Para tomar aquí o llevar.</p>
+        <a class="menu-cta" href="#carta">Ver la carta</a>
+      </div>
+      <figure><img fetchpriority="high" src="https://images.unsplash.com/photo-1546020037-0a343efa835a?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Croissants y una taza de café"></figure>
+    </section>
+    <nav class="section-nav" aria-label="Secciones"><a href="#carta">Carta</a><a href="#horno">Del horno</a><a href="#visita">Horarios</a><a href="#reservas">Reservas</a><a href="#preguntas">Preguntas</a></nav>
+    <section id="carta" class="section">
+      <div class="section-heading"><h2>La carta</h2><p>Filtra por categoría o busca un producto.</p></div>
+      <div class="menu-layout">
+        <div class="menu-board">
+          <label class="menu-search" for="menu-query">Buscar en la carta<input id="menu-query" type="search" placeholder="Café, croissant, limón…"></label>
+          <div class="tabs" id="tabs" aria-label="Filtrar la carta"></div>
+          <p class="sr-only" id="menu-results" role="status"></p>
+          <div id="menu"></div>
+          <div class="search-empty" id="menu-empty" hidden><p>No hay productos que coincidan.</p><button type="button" id="reset-menu">Ver toda la carta</button></div>
+        </div>
+        <aside class="basket" id="cesta" aria-labelledby="basket-title" tabindex="-1">
+          <h3 id="basket-title">Tu carrito</h3>
+          <p class="pickup">Pedido de ejemplo para recoger en el local</p>
+          <div id="cart"></div>
+          <div class="row between total"><span>Total</span><strong id="total">0,00 €</strong></div>
+          <button id="order" disabled>Preparar pedido de ejemplo</button>
+          <div id="receipt" role="status"></div>
+        </aside>
+      </div>
+    </section>
+    <section class="oven" id="horno">
+      <div><h2>Del horno</h2><p>Tres formas de acompañar el café.</p><a href="#carta" id="show-bakery">Ver bollería y tostadas</a></div>
+      <dl><div><dt>Croissant de mantequilla</dt><dd>Capas doradas. Contiene gluten y leche.</dd></div><div><dt>Tostada de tomate</dt><dd>Pan de masa madre y aceite de oliva. Contiene gluten.</dd></div><div><dt>Bizcocho de limón</dt><dd>Contiene huevo, gluten y leche.</dd></div></dl>
+    </section>
+    <section id="visita" class="visit">
+      <div><h2>Antes de venir</h2><p>Horario de ejemplo</p></div>
+      <div>
+        <dl class="hours"><div><dt>Lunes a viernes</dt><dd>08:00–19:00</dd></div><div><dt>Sábados y domingos</dt><dd>09:00–15:00</dd></div></dl>
+      </div>
+    </section>
+    <section id="reservas" class="reservation">
+      <div><h2>Reserva una mesa</h2><p>Elige el día, la hora y cuántas personas sois. La reserva es de demostración.</p></div>
+      <button id="reserve">Elegir día y hora</button>
+    </section>
+    <section id="preguntas" class="questions">
+      <h2>Preguntas frecuentes</h2>
+      <div>
+        <details><summary>¿Puedo pedir para llevar?</summary><p>Sí. Añade productos al carrito y prepara un pedido de ejemplo para recoger en el local.</p></details>
+        <details><summary>¿Hay café con bebida vegetal?</summary><p>En la carta encontrarás café con bebida de avena.</p></details>
+        <details><summary>¿Dónde consulto los alérgenos?</summary><p>Los alérgenos indicados para la bollería y las tostadas aparecen en la carta y en el apartado Del horno.</p></details>
+        <details><summary>¿Se envía el pedido o la reserva?</summary><p>Esta web es una demo. Los pedidos y las reservas se preparan aquí de forma simulada.</p></details>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer"><p>Marca ficticia · Pedidos y reservas simulados · Foto de Marwan Aboul-Zelof / Unsplash</p><a href="index.html">Ver proyectos</a></footer>
+  <dialog id="booking" aria-labelledby="booking-title">
+    <form id="bookform">
+      <div class="row between"><h2 id="booking-title">Reservar mesa</h2><button type="button" class="secondary" id="close">Cerrar</button></div>
+      <p class="muted">Configura una reserva de ejemplo.</p>
+      <label>Día<input id="day" type="date" required></label>
+      <div class="grid two">
+        <label>Hora<select id="hour"><option>09:00</option><option>10:30</option><option>12:00</option><option>13:30</option></select></label>
+        <label>Personas<select id="people"><option>2</option><option>1</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+      </div>
+      <button>Confirmar reserva de ejemplo</button><div id="bookstatus" role="status"></div>
+    </form>
+  </dialog>
+  <div class="cart-toast" id="cart-toast" aria-hidden="true"></div>
+  <div class="sr-only" id="cart-announcement" role="status" aria-live="polite"></div>
+  <script src="miga.js"></script>
+  <script src="miga-polish.js"></script>
+  <script src="miga-experience.js"></script>
+</body>
+</html>
